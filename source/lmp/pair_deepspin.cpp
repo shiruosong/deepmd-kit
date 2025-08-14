@@ -534,8 +534,8 @@ void PairDeepSpin::compute(int eflag, int vflag) {
   for (int ii = 0; ii < nall; ++ii) {
     for (int dd = 0; dd < 3; ++dd) {
       f[ii][dd] += scale[1][1] * dforce[3 * ii + dd] * force_unit_cvt_factor;
-      fm[ii][dd] += scale[1][1] * dforce_mag[3 * ii + dd] / (hbar / sp[ii][3]) *
-                    force_unit_cvt_factor;
+      fm[ii][dd] += scale[1][1] * dforce_mag[3 * ii + dd]; // (hbar / sp[ii][3]) *
+                    // force_unit_cvt_factor; from THz to eV/uB
     }
   }
 
